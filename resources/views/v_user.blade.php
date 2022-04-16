@@ -2,7 +2,15 @@
 @section ('isicontent')
 <h1>INI HALAMAN USER</h1>
 
+<a href="/user/add" class="btn btn-sm btn-success">Tambah Data</a>
+@if (session('Pesan'))
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-check"></i>Success!</h5>
+    {{ (session('Pesan')) }}.
 
+</div>
+@endif
 <table class="table table-boarder">
     <thead>
         <tr>
@@ -21,9 +29,14 @@
             <td>{{ $data->username }}</td>
             <td>{{ $data->password }}</td>
             <td>{{ $data->level }}</td>
-            <td></td>
+            <td> <img src="{{ url('foto_user/' .$data->foto) }}" width="80px"></td>
+            <td>
+                <a href="" class="btn btn-sm btn-success"> View </a>
+                <a href="" class="btn btn-sm btn-warning"> Edit </a>
+                <a href="" class="btn btn-sm btn-danger"> Delete </a>
+            </td>
+            @endforeach
         </tr>
-        @endforeach
     </tbody>
 </table>
 

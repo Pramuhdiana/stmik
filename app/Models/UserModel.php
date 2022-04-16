@@ -12,4 +12,14 @@ class UserModel extends Model
     {
         return DB::table('tbl_user')->get();
     }
+
+    public function tambahdata($data)
+    {
+        DB::table('tbl_user')->insert($data);
+    }
+
+    public function tambahdataMaster($data)
+    {
+        DB::table('tbl_user')->insert($data);
+    }
 }
