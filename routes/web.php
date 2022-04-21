@@ -21,7 +21,10 @@ Route::get('/', function () {
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::get('/user/add', [UserController::class, 'add']);
 Route::post('/user/tambah', [UserController::class, 'tambah']);
-//Route::post('/user/tambah', 'UserController@tambah');
+Route::get('/user/detail/{id}', [UserController::class, 'detail']);
+Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+Route::post('/user/update/{id}', [UserController::class, 'update']);
+Route::get('/user/delete/{id}', [UserController::class, 'delete']);
 
 Route::get('/masterdata', [UserController::class, 'indexmaster'])->name('master');
 Route::get('/masterdata/addmaster', [UserController::class, 'add']);

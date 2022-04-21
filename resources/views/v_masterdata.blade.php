@@ -1,6 +1,7 @@
 @extends ('home')
+@section('title', 'Master Data')
+@section('header', 'Halaman Master Data')
 @section ('isicontent')
-<h1>INI HALAMAN MASTER DATA</h1>
 
 <a href="/masterdata/add" class="btn btn-sm btn-success">Tambah Data</a>
 @if (session('Pesan'))

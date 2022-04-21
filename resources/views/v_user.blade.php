@@ -1,6 +1,8 @@
 @extends ('home')
+@section('title', 'User')
+@section('header', 'Halaman User')
 @section ('isicontent')
-<h1>INI HALAMAN USER</h1>
+
 
 <a href="/user/add" class="btn btn-sm btn-success">Tambah Data</a>
 @if (session('Pesan'))
@@ -31,9 +33,9 @@
             <td>{{ $data->level }}</td>
             <td> <img src="{{ url('foto_user/' .$data->foto) }}" width="80px"></td>
             <td>
-                <a href="" class="btn btn-sm btn-success"> View </a>
-                <a href="" class="btn btn-sm btn-warning"> Edit </a>
-                <a href="" class="btn btn-sm btn-danger"> Delete </a>
+                <a href="/user/detail/{{ $data->id }}" class="btn btn-sm btn-success"> View </a>
+                <a href="/user/edit/{{ $data->id }}" class="btn btn-sm btn-warning"> Edit </a>
+                <a href="/user/delete/{{ $data->id}}" class="btn btn-sm btn-danger"> Delete </a>
             </td>
             @endforeach
         </tr>

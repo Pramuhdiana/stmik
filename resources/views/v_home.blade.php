@@ -1,4 +1,5 @@
 @extends ('home')
+@section('title', 'Home')
 @section ('isicontent')
-<h1>INI HALAMAN AWAL</h1>
+@section('header', 'Dashboard')
 @endsection

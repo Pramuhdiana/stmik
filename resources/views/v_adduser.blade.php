@@ -1,9 +1,7 @@
-<!-- @extends('side.sidebar')
-@section('breadcump', 'Tambah User')
-@section('isicontent') -->
 @extends ('home')
+@section('title', 'Add User')
+@section('header', 'Halaman Add User')
 @section ('isicontent')
-<h1>Halaman Add</h1>
 
 <form action="/user/tambah" method="POST" enctype="multipart/form-data">
 @csrf
@@ -12,7 +10,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" name="username" class="form-control" value="{{ old{'username') }}">
+                    <input type="text" name="username" class="form-control" value="{{ old('username') }}">
                     <div class="text-danger">
                         @error('username')
                         {{ $message }}
@@ -40,7 +38,7 @@
 
                 <div class="form-group">
                     <label>Foto</label>
-                    <input type="file" name="foto_user" class="form-control"  value="{{ old('level) }}">
+                    <input type="file" name="foto_user" class="form-control"  value="{{ old('level') }}">
                 </div>
 
                 <div class="form-group">
@@ -54,4 +52,3 @@
 </form>
 
 @endsection
-@section('title','Tambah User')

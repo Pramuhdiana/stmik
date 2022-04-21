@@ -99,4 +99,70 @@ class UserController extends Controller
         //cara menambahkan pesan saat data sudah di simpan
        return redirect()->route('user')->with('Pesan','Data telah berhasil disimpan !!!');
     }
+
+    //fungsi detail
+    public function detail($id)
+    {
+
+        //antisipasi kesalahan data tidak ditemukan
+        if(!$this->UserModel->detailuser($id)){
+            abort(404);
+        }
+
+        $data =[
+            'user' =>$this->UserModel->detailuser($id),
+        ];
+        return view('v_detailuser',$data);
+    }
+
+    //fungsi edit
+    public function edit($id) {
+        if(!$this->UserModel->detailuser($id)) {
+            abort(404);
+        }
+
+        $data = [
+            'user' => $this->UserModel->detailuser($id),
+      ];
+      return view('v_edituser', $data);
+    }
+
+    public function update($id)
+    {
+
+        //update data
+        if (Request()-> foto <> "")
+        {
+            //upload gambar
+            $foto = Request()->foto;
+            $namafile = Request()->username . '.' . $foto->extension();
+            $foto->move(public_path('foto_user'), $namafile);
+
+            //masukan data ke DB
+            $data = [
+                'username' => Request()->username,
+                'password' => Request()->password,
+                'level' => Request()->level,
+                'foto' => $namafile,
+            ];
+            $this->UserModel->updatedata($id,$data);
+        } else {
+            $data = [
+                'username' => Request()->username,
+                'password' => Request()->password,
+                'level' => Request()->level,
+            ];
+            $this->UserModel->updatedata($id,$data);
+
+        }
+        return redirect()->route('user')->with('Pesan', 'Data telah berhasil di Update');
+    }
+
+    public function delete($id)
+    {
+        $data = [
+            'user' => $this->UserModel->deleteuser($id),
+      ];
+        return redirect()->route('user')->with('Pesan', 'Data telah berhasil di hapus');
+    }
 }

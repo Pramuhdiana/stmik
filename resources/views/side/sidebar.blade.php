@@ -29,14 +29,14 @@
 
         </li>
         <li class="treeview">
-            <a href="user">
+            <a href="/user">
                 <i class="fa fa-files-o"></i>
                 <span>User</span>
             </a>
         </li>
 
         <li class="treeview">
-            <a href="masterdata"><i class="fa fa-dashboard"></i> <span>Master Data</span> </a>
+            <a href="/masterdata"><i class="fa fa-dashboard"></i> <span>Master Data</span> </a>
 
     </section>
     <!-- /.sidebar -->
@@ -46,9 +46,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            Dashboard
-        </h1>
+       <h3>@yield('header')</h3> 
     </section>
 
     <!-- Main content -->

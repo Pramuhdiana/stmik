@@ -1,6 +1,7 @@
 @extends ('home')
+@section('title', 'Add Master')
+@section('header', 'Halaman Add Master')
 @section ('isicontent')
-<h1>Halaman Add Master</h1>
 
 <form action="/masterdata/tambah" method="POST" enctype="multipart/form-data">
 @csrf
